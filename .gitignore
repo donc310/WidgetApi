@@ -1,0 +1,12 @@
+/dist
+/node_modules
+.idea
+env
+__pycache__
+.pyc
+form.vue
+test.vue
+all.vue
+testMap.vue
+.vscode
+

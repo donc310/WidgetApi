@@ -1,0 +1,98 @@
+ID,state,Level_1,Level_2,LOCATION,ChainID,Mild,Moderate,Frequent
+2f87fd92ae7dc1c07ccd62301e7705de,NE,food_drink,cafe,Starbucks Coffee,1.35314E+18,1,0,0
+2f87fd92ae7dc1c07ccd62301e7705de,NE,health,pharmacy,Starbucks Coffee,1.35314E+18,1,0,0
+2f87fd92ae7dc1c07ccd62301e7705de,NE,shopping,shopping_mall,Starbucks Coffee,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,clothing_store,Zumiez,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,clothing_store,Aeropostale,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,hardware_store,Lowe's Home Improvement,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,food_drink,cafe,Starbucks Coffee,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,food_drink,quick_service,Auntie Anne's Soft Pretzels,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,shoe_store,Buckle,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,sporting_goods,Champs Sports,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,health,eye_care,Sears Optical,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,department_store,Macy's,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,shoe_store,Sears Home Services,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,grooming,hair salon,Regis Salons,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,shoe_store,Payless Shoe Source,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,furniture_store,Kirkland's,1.49079E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,shoe_store,Foot Locker,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,clothing_store,Spencer's,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,cell_phone_store,Metro PCS,1.45031E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,shopping_mall,Starbucks Coffee,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,shoe_store,Rack Room Shoes,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,health,pharmacy,Starbucks Coffee,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,shopping_mall,Auntie Anne's Soft Pretzels,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,grooming,hair salon,Hair Plus,1.50094E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,food_drink,quick_service,Cold Stone Creamery,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,jewelry_store,Kay Jewelers,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,cell_phone_store,Cricket Wireless,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,clothing_store,Men's Wearhouse,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,clothing_store,Lids,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,hardware_store,The Home Depot,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,jewelry_store,Zales The Diamond Store,1.49221E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,health,pharmacy,Walgreens,1.35314E+18,0,1,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,travel,airport,Auntie Anne's Soft Pretzels,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,department_store,Walmart,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,shoe_store,Journeys,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,jewelry_store,Sunglass Hut,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,clothing_store,Justice,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,shopping_mall,Macy's,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,electronics_store,GameStop,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,food_drink,quick_service,Chick-fil-A,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,cell_phone_store,Sprint,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,shopping_mall,Great American Cookies,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,clothing_store,Things Remembered,1.35314E+18,1,0,0
+90d2d3b260df8678ba92f55329b0ecaf,FL,shopping,jewelry_store,Claire's,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,SC,shopping,shopping_mall,Starbucks Coffee,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,shopping,grocery_or_supermarket,Sam's Club,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,shopping,electronics_store,Apple Store,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,SC,food_drink,quick_service,Chick-fil-A,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,SC,grooming,hair salon,Great Clips,1.35314E+18,0,0,1
+bbe7a24e9d86c05624cc5c7c16288957,FL,food_drink,cafe,Starbucks Coffee,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,SC,shopping,cell_phone_store,Cricket Wireless,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,health,pharmacy,Starbucks Coffee,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,shopping,shopping_mall,The Finish Line,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,automotive,gas_station,Kangaroo,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,shopping,shopping_mall,Starbucks Coffee,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,SC,food_drink,quick_service,Subway,1.35314E+18,0,0,1
+bbe7a24e9d86c05624cc5c7c16288957,FL,shopping,clothing_store,H&M,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,shopping,clothing_store,American Eagle Outfitters,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,shopping,shoe_store,The Finish Line,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,shopping,clothing_store,Ann Taylor,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,shopping,shopping_mall,Apple Store,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,shopping,shopping_mall,Louis Vuitton,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,food_drink,quick_service,Panera Bread,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,FL,shopping,jewelry_store,ALDO,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,SC,shopping,grocery_or_supermarket,Kroger,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,SC,health,pharmacy,Starbucks Coffee,1.35314E+18,1,0,0
+bbe7a24e9d86c05624cc5c7c16288957,SC,food_drink,cafe,Starbucks Coffee,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,shopping,furniture_store,Buddy's Home Furnishings,1.49079E+18,0,1,0
+ebad11016995a4ca856a52334034e5e0,FL,food_drink,quick_service,KFC,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,personal_finance,banking,Bank of America,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,automotive,gas_station,BP Oil,1.35314E+18,0,1,0
+ebad11016995a4ca856a52334034e5e0,FL,shopping,hardware_store,The Home Depot,1.35314E+18,0,1,0
+ebad11016995a4ca856a52334034e5e0,FL,food_drink,quick_service,Whataburger,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,health,pharmacy,CVS Pharmacy,1.35314E+18,0,1,0
+ebad11016995a4ca856a52334034e5e0,FL,grooming,hair salon,Cuts By Us,1.50094E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,shopping,cell_phone_store,Boost Mobile,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,personal_finance,banking,Woodforest National Bank,1.35314E+18,0,1,0
+ebad11016995a4ca856a52334034e5e0,FL,shopping,electronics_store,Boost Mobile,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,personal_finance,banking,Regions Bank,1.35314E+18,0,1,0
+ebad11016995a4ca856a52334034e5e0,FL,health,pharmacy,Walgreens,1.35314E+18,0,0,1
+ebad11016995a4ca856a52334034e5e0,FL,food_drink,quick_service,McDonald's,1.35314E+18,0,1,0
+ebad11016995a4ca856a52334034e5e0,FL,grooming,hair salon,Smartstyle Family Hair Salon,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,automotive,auto_repair,Aerotek,1.49723E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,food_drink,quick_service,Taco Bell,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,food_drink,quick_service,Burger King,1.35314E+18,0,1,0
+ebad11016995a4ca856a52334034e5e0,FL,shopping,department_store,Walmart,1.35314E+18,0,0,1
+ebad11016995a4ca856a52334034e5e0,FL,food_drink,quick_service,Chick-fil-A,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,food_drink,quick_service,Papa John's Pizza,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,AL,food_drink,quick_service,Chick-fil-A,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,shopping,convenience_store,Dollar Tree Stores,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,food_drink,quick_service,Subway,1.35314E+18,0,0,1
+ebad11016995a4ca856a52334034e5e0,FL,automotive,gas_station,Chevron,1.35314E+18,0,0,1
+ebad11016995a4ca856a52334034e5e0,FL,personal_finance,banking,Edward Jones Investments,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,shopping,convenience_store,Circle K,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,shopping,grocery_or_supermarket,Publix Super Market,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,grooming,hair salon,Fantastic Sams,1.35314E+18,1,0,0
+ebad11016995a4ca856a52334034e5e0,FL,automotive,auto_repair,Advance Auto Parts,1.35314E+18,1,0,0
