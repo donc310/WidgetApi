@@ -18,9 +18,7 @@ class TotalResource(Resource):
         total = schema_total.dump(total).data
         return {"status": "success", "data": total}, 200
 
-
 class GetState(Resource):
-
     queryArgs = {
         "statecode": fields.Str(),
         "mapIndex": fields.Integer(),
@@ -49,7 +47,7 @@ class GetState(Resource):
                 'filter':search_query
            },
            'state':args['statecode'],
-           'mapIndex':args['mapIndex']
+           'mapIndex':args['mapIndex'] -1
         }
         return {"message": "Success",'data':data}, 200
     
@@ -67,7 +65,6 @@ class GetState(Resource):
         else:
             return total
         
-
 
 @parser.error_handler
 def handle_request_parsing_error(err, req, schema, error_status_code, error_headers):
