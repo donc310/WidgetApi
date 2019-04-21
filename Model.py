@@ -2,6 +2,7 @@ from flask import Flask
 from marshmallow import Schema, fields, pre_load, validate
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
+import BaseModel
 
 
 db = SQLAlchemy()
@@ -26,12 +27,6 @@ class States(db.Model):
         self.abv = abv
         self.latitude = latitude
         self.longitude = longitude
-
-    def __repr__(self):
-        return '<abv {}>'.format(self.abv)
-    
-    def __str__(self):
-        return '%s' % self.abv
 class VistorLevel(db.Model):
     __tablename__ = 'bi-vsistor-level-totals'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -80,14 +75,33 @@ class VistorChainsTotal(db.Model):
         self.state = state
 
 
+class QuerySchema(ma.Schema):
+    latitude = fields.Float()
+    latitude = fields.Float()
+    abv = fields.String()
+    name = fields.String()
+    ID = fields.String()
+    state = fields.String()
+    ChainID = fields.Float()
+    LOCATION = fields.String()
+    Mild = fields.Integer()
+    Moderate = fields.Integer()
+    Frequent = fields.Integer()
+    AudienceTotal = fields.Integer()
+    Level_2 = fields.String()
+    Level_1 = fields.String()
 
+
+    
 
 class LevelOptionsSchema(ma.Schema):
-    Level_1 = Level_1 = fields.String()
+    Level_1 = fields.String()
     
 class Level2OptionsSchema(ma.Schema):
-    Level_2 = Level_2 = fields.String()
-  
+    Level_2 = fields.String()
+
+class LocationOptionSchema(ma.Schema):
+    LOCATION= fields.String()
 class VistorLevelSchema(ma.Schema):
     state = fields.String()
     Level_1 = fields.String()
@@ -96,7 +110,7 @@ class VistorLevelSchema(ma.Schema):
     Moderate = fields.Integer()
     Frequent = fields.Integer()
     AudienceTotal = fields.Integer()
-class VisitorChainTotalSchma(ma.Schema):
+class VisitorChainTotalSchema(ma.Schema):
     state = fields.String()
     ChainID = fields.Integer()
     LOCATION = fields.String()
@@ -109,7 +123,7 @@ class VisitorAudienceTotal(ma.Schema):
 class Names(ma.Schema):
     name = fields.String()
     abv = fields.String()
-class VisitorSchma(ma.Schema):
+class VisitorSchema(ma.Schema):
     ID = fields.String()
     state = fields.String()
     ChainID = fields.Float()
@@ -125,6 +139,13 @@ class StatesSchema(ma.Schema):
     abv = fields.String()
     latitude = fields.Float()
     longitude = fields.Float()
+
+
+
+
+
+
+
 
 
 class Comment(db.Model):

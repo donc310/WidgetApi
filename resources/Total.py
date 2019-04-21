@@ -1,12 +1,12 @@
 from flask import jsonify, request
 from flask_restful import Resource
-from Model import db, VistorChainsTotal, VisitorChainTotalSchma , VistorLevel, VistorLevelSchema , VisitorAudienceTotal
+from Model import db, VistorChainsTotal, VisitorChainTotalSchema , VistorLevel, VistorLevelSchema , VisitorAudienceTotal
 
 from webargs import fields, validate
 from webargs.flaskparser import use_args, use_kwargs, parser, abort
 
-schema_total = VisitorChainTotalSchma
-schema_total = VisitorChainTotalSchma(many=True)
+schema_total = VisitorChainTotalSchema
+schema_total = VisitorChainTotalSchema(many=True)
 
 audienceTotal = VisitorAudienceTotal
 audienceTotal = VisitorAudienceTotal(many=True)

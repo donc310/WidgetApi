@@ -1,9 +1,9 @@
 from flask import jsonify, request
 from flask_restful import Resource
-from Model import db, Vistor ,VisitorSchma
+from Model import db, Vistor ,VisitorSchema
 
-schema_data = VisitorSchma()
-schema_data = VisitorSchma(many=True)
+schema_data = VisitorSchema()
+schema_data = VisitorSchema(many=True)
 
 class DataResource(Resource):
     def get(self):
