@@ -8,7 +8,7 @@ from resources.Data import DataResource
 from resources.Total import TotalResource ,GetState
 from resources.Chain import ChainResource
 from resources.Levels import Level1Resource
-from resources.Query import QueryResource
+from resources.Query import QueryResource, AudienceResource
 
 api_bp = Blueprint('api', __name__)
 api = Api(api_bp)
@@ -24,3 +24,4 @@ api.add_resource(GetState,'/getstate')
 api.add_resource(ChainResource, '/chains')
 api.add_resource(Level1Resource,'/leveloptions')
 api.add_resource(QueryResource,'/stats/query')
+api.add_resource(AudienceResource, '/stats/total')
