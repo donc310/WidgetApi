@@ -8,3 +8,4 @@ flask_marshmallow==0.8.0
 marshmallow-sqlalchemy==0.13.2
 psycopg2==2.7.5
 Flask_Cors==3.0.7
+gunicorn==19.9.0
