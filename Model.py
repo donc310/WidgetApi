@@ -41,7 +41,7 @@ class VistorLevel(db.Model):
     def __init__(self,state):
         self.state = state
     def __str__(self):
-        return '%s' % self.state
+        return f'{self.state}'
 
     def __repr__(self):
         return '<state %r>' % self.state

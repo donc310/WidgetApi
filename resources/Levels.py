@@ -23,8 +23,8 @@ class Level1Resource(Resource):
     }
     @use_args(queryArgs)
     def get(self, args):
-        if 'level' and 'sublevel' in args:
-            if(not len(args['sublevel']) == 0):
+        if 'sublevel' in args:
+            if len(args['sublevel']) != 0:
                 location = Vistor.query.filter_by(
                     Level_1=args['level'], Level_2=args['sublevel']).distinct(Vistor.LOCATION).all()
             else:

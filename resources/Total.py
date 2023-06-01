@@ -27,19 +27,15 @@ class GetState(Resource):
     @use_args(queryArgs)
     def get(self, args):
         queries=[]
-        if not "statecode" in args:
+        if "statecode" not in args:
             return {"Error": "Missing State in query"}, 400
 
-        if not "mapIndex" in args:
+        if "mapIndex" not in args:
             return {"Error": "Missing MapIndex in query "}, 400
-        
-        if 'query' in args:
-            search_query = args['query']
-        else:
-            search_query = []
-        
+
+        search_query = args['query'] if 'query' in args else []
         query = self._search(args['statecode'],args['mapIndex'],search_query)
-        
+
         data = {
            'estimated' : query,
            'Query':{
@@ -55,15 +51,11 @@ class GetState(Resource):
     def _search(self,statecode,mapIndex, querys):
         _query = VistorChainsTotal.query.filter_by(state=statecode).all()
         _query = audienceTotal.dump(_query).data
-        total = 0 
-        if not len(_query) == 0:
-            index = 0 
-            while index < len(_query):
+        total = 0
+        if len(_query) != 0:
+            for index in range(len(_query)):
                 total += _query[index]['AudienceTotal']
-                index += 1
-            return total
-        else:
-            return total
+        return total
         
 
 @parser.error_handler

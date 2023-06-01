@@ -27,8 +27,8 @@ class BaseModel(db.Model):
                 if len(item) == 0:
                     return item
                 if item[0] != ".":
-                    item = ".%s" % item
-                item = "%s%s" % (_path, item)
+                    item = f".{item}"
+                item = f"{_path}{item}"
                 return item
 
             _hide[:] = [prepend_path(x) for x in _hide]
@@ -43,7 +43,7 @@ class BaseModel(db.Model):
         for key in columns:
             if key.startswith("_"):
                 continue
-            check = "%s.%s" % (_path, key)
+            check = f"{_path}.{key}"
             if check in _hide or key in hidden:
                 continue
             if check in show or key in default:
@@ -52,7 +52,7 @@ class BaseModel(db.Model):
         for key in relationships:
             if key.startswith("_"):
                 continue
-            check = "%s.%s" % (_path, key)
+            check = f"{_path}.{key}"
             if check in _hide or key in hidden:
                 continue
             if check in show or key in default:
@@ -69,7 +69,7 @@ class BaseModel(db.Model):
                             item.to_dict(
                                 show=list(show),
                                 _hide=list(_hide),
-                                _path=("%s.%s" % (_path, key.lower())),
+                                _path=f"{_path}.{key.lower()}",
                             )
                         )
                 else:
@@ -83,7 +83,7 @@ class BaseModel(db.Model):
                             ret_data[key] = item.to_dict(
                                 show=list(show),
                                 _hide=list(_hide),
-                                _path=("%s.%s" % (_path, key.lower())),
+                                _path=f"{_path}.{key.lower()}",
                             )
                         else:
                             ret_data[key] = None
@@ -96,9 +96,9 @@ class BaseModel(db.Model):
             if not hasattr(self.__class__, key):
                 continue
             attr = getattr(self.__class__, key)
-            if not (isinstance(attr, property) or isinstance(attr, QueryableAttribute)):
+            if not (isinstance(attr, (property, QueryableAttribute))):
                 continue
-            check = "%s.%s" % (_path, key)
+            check = f"{_path}.{key}"
             if check in _hide or key in hidden:
                 continue
             if check in show or key in default:
@@ -107,7 +107,7 @@ class BaseModel(db.Model):
                     ret_data[key] = val.to_dict(
                         show=list(show),
                         _hide=list(_hide),
-                        _path=("%s.%s" % (_path, key.lower()))
+                        _path=f"{_path}.{key.lower()}",
                     )
                 else:
                     try:

@@ -50,58 +50,39 @@ class QueryResource(Resource):
 		for x in response:
 			y = x['ID']
 			q = x['state']
-			count = 0
-			for z in response:
-				if z['ID'] == y and z['state'] == q:
-					count += 1
+			count = sum(1 for z in response if z['ID'] == y and z['state'] == q)
 			x['count'] = count
 		return response
 
 	@use_args(queryArgs)
 	def get(self, args):
-		name = ""
 		Level_1 = ""
 		Level_2 = ""
-		if 'name'in args:
-			name = args['name']
+		name = args['name'] if 'name'in args else ""
 		if 'Level_1'in args:
 			level_1 = args['Level_1']
 		if 'Level_2'in args:
 			level_2 = args['Level_2']
 
-		if 'location' in args and not args['location'] == "":
+		if 'location' in args and args['location'] != "":
 			res = Vistor.query.filter_by(LOCATION=args['location']).all()
-			result = visitor_schema.dump(res).data
-		elif 'Level_2' in args and not args['Level_2'] == "":
+		elif 'Level_2' in args and args['Level_2'] != "":
 			res = Vistor.query.filter_by(Level_2=args['Level_2']).all()
-			result = visitor_schema.dump(res).data
-
-		elif 'Level_1' in args and not args['Level_1'] == "":
+		elif 'Level_1' in args and args['Level_1'] != "":
 			res = Vistor.query.filter_by(Level_1=args['Level_1']).all()
-			result = visitor_schema.dump(res).data
 		else:
 			res = Vistor.query.all()
-			result = visitor_schema.dump(res).data
-
-		audience = ""
-		frequency = []
-		states = []
+		result = visitor_schema.dump(res).data
 		_response = []
-		if 'audience' in args:
-			audience = args['audience']
-		if 'states' in args:
-			states = args['states']
-		if 'frequency' in args:
-			frequency = args['frequency']
+		audience = args['audience'] if 'audience' in args else ""
+		states = args['states'] if 'states' in args else []
+		frequency = args['frequency'] if 'frequency' in args else []
 		if audience == 'states' and len(states) >= 1 and len(res) >= 1:
-			for index, _rep in enumerate(result):
-				if _rep['state'] in states:
-					_response.append(_rep)
+			_response.extend(_rep for _rep in result if _rep['state'] in states)
 		else:
 			_response = result
 		if len(frequency) >= 1:
-			frequencyMap = self.parseFrequency(frequency)
-			if frequencyMap:
+			if frequencyMap := self.parseFrequency(frequency):
 				if frequencyMap == [1, 0, 0]:
 					_response = [i for i in _response if (i['Mild'] == 1)]
 				elif frequencyMap == [0, 1, 0]:
@@ -118,11 +99,11 @@ class QueryResource(Resource):
 					_response = [i for i in _response if (
 						i['Moderate'] == 1 and i['Frequent'] == 1)]
 		if len(_response) >= 1:
-			for x, y in enumerate(_response):
+			for y in _response:
 				y['_map'] = self._get(y['state'])
 
 		ananyzlized = self.anayzedata(_response)
-		l_frengency = [i for i in range(0, len(frequency))]
+		l_frengency = list(range(0, len(frequency)))
 		metadata = {
 			'queryname': name,
 			'queries': {
@@ -130,9 +111,9 @@ class QueryResource(Resource):
 				'Level_1': Level_1,
 				'Level_2': Level_2,
 				'frequecy': dict(zip(l_frengency, frequency)),
-				'states': dict(zip([i for i in range(0, len(states))], states))
+				'states': dict(zip(list(range(0, len(states))), states)),
 			},
-			'time': str(datetime.datetime.now().timestamp())
+			'time': str(datetime.datetime.now().timestamp()),
 		}
 		return {"message": "Success", 'data': ananyzlized, 'meta': metadata}, 200
 
@@ -141,15 +122,8 @@ class QueryResource(Resource):
 		# _query = self.parseQuery(args)
 
 		total = Vistor.query
-		_level_1 = None
-		_level_2 = None
-
-		if not args["Level_1"] == "":
-			_level_1 = args['Level_1']
-
-		if not args['Level_2'] == "":
-			_level_2 = args['Level_2']
-
+		_level_1 = args['Level_1'] if args["Level_1"] != "" else None
+		_level_2 = args['Level_2'] if args['Level_2'] != "" else None
 		if type(_level_1) == str and type(_level_2) == str:
 			total = total.filter_by(Level_1=_level_1, Level_2=_level_2)
 
@@ -159,7 +133,7 @@ class QueryResource(Resource):
 			if type(_level_2) == str:
 				total = total.filter_by(Level_2=_level_2)
 
-		if 'location' in args and not args['location'] == "":
+		if 'location' in args and args['location'] != "":
 			_location = args['location']
 			total = total.filter_by(LOCATION=_location)
 
@@ -173,9 +147,6 @@ class QueryResource(Resource):
 				total = total.filter_by(Moderate=1)
 			elif 'Mild' in args['frequency']:
 				total = total.filter_by(Mild=1)
-		if "states" in args and args['audience'] == "states":
-			if len(args['states']) >= 1:
-				pass
 				# total = total.filter(and_(Vistor.state.in_([args['states']])))
 
 	def parseFrequency(self, frequency):
@@ -183,16 +154,8 @@ class QueryResource(Resource):
 			return False
 		elif 'Frequent' in frequency:
 			_frequent = 1
-		elif not 'Frequent' in frequency:
+		else:
 			_frequent = 0
-		elif 'Moderate' in frequency:
-			_moderate = 1
-		elif not 'Moderate' in frequency:
-			_moderate = 0
-		elif 'Mild' in frequency:
-			_mild = 1
-		elif not 'Mild' in frequency:
-			_mild = 0
 		return [_mild, _moderate, _frequent]
 
 	def object_as_dict(self, obj):
@@ -216,80 +179,55 @@ class AudienceResource(Resource):
 		"states": fields.List(fields.Str())
 	}
 	def anayzedata(self, response, fmap):
-		if fmap == [1, 1, 0] or [1,0,1] or [0,1,1]:
-			for x in response:
-				#y = x['ChainID']
-				q = x['state']
-				count = 0
-				for z in response:
-					if z['state'] == q:
-						count += z['AudienceTotal']
-				x['count'] = count
-			return response
-		else:
-			return response
+		for x in response:
+			#y = x['ChainID']
+			q = x['state']
+			count = sum(z['AudienceTotal'] for z in response if z['state'] == q)
+			x['count'] = count
+		return response
 
 	def _get(self, code):
 		states = States.query.filter_by(abv=code).all()
 		states = schema_states.dump(states).data
-		if len(states) >=1:
-			return states[0]
-		else:
-			return {}
+		return states[0] if len(states) >=1 else {}
 	def parseFrequency(self, frequency):
-		_mild = 0
-		_frequent = 0
-		_moderate = 0 
 		if len(frequency) == 3:
 			return False
-		if 'Frequent' in frequency:
-			_frequent = 1
-		if 'Moderate' in frequency:
-			_moderate = 1
-		if 'Mild' in frequency:
-			_mild = 1
+		_frequent = 1 if 'Frequent' in frequency else 0
+		_moderate = 1 if 'Moderate' in frequency else 0
+		_mild = 1 if 'Mild' in frequency else 0
 		return [_mild, _moderate, _frequent]
 
 	@use_args(queryArgs)
 	def get(self, args):
-		name = ""
 		Level_1 = ""
 		Level_2 = ""
-		if 'name'in args:
-			name = args['name']
+		name = args['name'] if 'name'in args else ""
 		if 'Level_1'in args:
 			level_1 = args['Level_1']
 		if 'Level_2'in args:
 			level_2 = args['Level_2']
-   
-		if 'location' in args and not args['location'] == "":
+
+		if 'location' in args and args['location'] != "":
 			res = VistorChainsTotal.query.filter_by(LOCATION=args['location']).all()
 			result = visitor_chain_schema.dump(res).data
-		elif 'Level_2' in args and not args['Level_2'] == "":
+		elif 'Level_2' in args and args['Level_2'] != "":
 			res = VistorLevel.query.filter_by(Level_2=args['Level_2']).all()
 			result = visitor_level_schema.dump(res).data
 
-		elif 'Level_1' in args and not args['Level_1'] == "":
+		elif 'Level_1' in args and args['Level_1'] != "":
 			res = VistorLevel.query.filter_by(Level_1=args['Level_1']).all()
 			result = visitor_level_schema.dump(res).data
 		else:
 			res = VistorChainsTotal.query.all()
 			result = visitor_chain_schema.dump(res).data
-		audience = ""
-		frequency = []
-		states = []
 		_response = []
-  
-		if 'audience' in args:
-			audience = args['audience']
-		if 'states' in args:
-			states = args['states']
-		if 'frequency' in args:
-			frequency = args['frequency']
+
+		audience = args['audience'] if 'audience' in args else ""
+		states = args['states'] if 'states' in args else []
+		frequency = args['frequency'] if 'frequency' in args else []
 		if audience == 'states' and len(states) >= 1 and len(res) >= 1:
-			for index, _rep in enumerate(result):
-				if _rep['state'] in states:
-					_response.append(_rep)
+			_response.extend(_rep for _rep in result if _rep['state'] in states)
 		else:
 			_response = result
 		frequencyMap=[]
@@ -311,9 +249,9 @@ class AudienceResource(Resource):
 				elif frequencyMap == [0, 1, 1]:
 					_response = [i for i in _response if (
 						i['Moderate'] == 1 and i['Frequent'] == 1)]
-		
+
 		if len(_response) >= 1:
-			for x, y in enumerate(_response):
+			for y in _response:
 				y['_map'] = self._get(y['state'])
 
 		ananyzlized = self.anayzedata(_response,frequencyMap)
@@ -323,10 +261,10 @@ class AudienceResource(Resource):
 				'audience': audience,
 				'Level_1': Level_1,
 				'Level_2': Level_2,
-				'frequecy': dict(zip([i for i in range(0,len(frequency))], frequency)),
-				'states': dict(zip([i for i in range(0, len(states))], states))
+				'frequecy': dict(zip(list(range(0, len(frequency))), frequency)),
+				'states': dict(zip(list(range(0, len(states))), states)),
 			},
-			'time': str(datetime.datetime.now().timestamp())
-			}
+			'time': str(datetime.datetime.now().timestamp()),
+		}
 		return {"message": "Success", 'args':args ,'data': ananyzlized, 'meta':metadata}, 200
 
